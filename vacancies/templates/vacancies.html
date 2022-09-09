@@ -1,0 +1,112 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% block content %}
+
+<style>body {
+  background-image: url("{% static '/images/brslogoOp75.svg' %}");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}</style>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<body>
+
+<div class="container ">
+  <div class="row py-4 px-4">
+      {% for vacancy in vacancies %}
+          {% if forloop.counter0|divisibleby:3 and not forloop.first %}<div class="w-100"></div>{% endif %}
+          <div class="bg-gradient col card mx-3 mb-2 py-2 px-2 ">
+              <!--Card Header-->  
+              <div class=""><h6 class="text-muted text-center">{{vacancy.id}}</h6></div>
+              
+              <!--Card body-->
+              <div class="card-body justify-content-center"><!--Card body-->
+              <h1 class="card-text py-4 text-center display-5">{{vacancy.title}}</h1>
+              <hr>
+             
+              <p class="card-text py-4 text-center">{{vacancy.description | slice:200  }}..</p>
+              <div class="card-body text-center">
+              <a class="btn btn-primary" href="#" role="button">Read more</a>
+              <button type="button" class="btn btn-success text-center">Read more</button>
+              </div>
+              
+              
+            
+                
+                
+                {% for benefit in vacancy.benefit.all %}
+                {% if benefit %}
+                <div class="container">
+                <div class="row">
+                <div class="col-sm card-text py-4 text-center">
+                <p class="btn card-text text-center bg-success">{{benefit}}</p>
+                </div>
+                </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              
+              {% if vacancy.source_link %}
+              <div>
+              <a class="card-text py-4 text-center" href=" {{vacancy.source_link }}">Company Website</a>
+              </div>
+              {% endif %}
+
+              <p class="card-text py-4 text-center">Opportunuity added: {{vacancy.created.date }}</p>
+              </div><!--Card body-->
+            
+          </div>
+      {% endfor %}
+  </div>
+</div>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  {% endblock content %}
+
+
+<!--<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col"></th>
+      <th scope="col">Apply</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ vacancy.id }}</th>
+      <td>{{ vacancy.title }}</td>
+      <td>{{ vacancy.description }}</td>
+      <td><button class="btn btn-dark">Apply</button></td>
+    </tr>
+    
+  </tbody>
+</table>---->
+
