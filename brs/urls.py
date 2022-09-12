@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-admin.site.site_header = "Bespoke Recruitment Admin Panel"
+admin.site.site_header = "BRS Admin"
 
 
 urlpatterns = [

@@ -33,13 +33,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.staticfiles',
+    
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    
+    'django.contrib.staticfiles',
 
     'vacancies.apps.VacanciesConfig',
     'users.apps.UsersConfig',
@@ -141,3 +142,41 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+JAZZMIN_SETTINGS = {
+
+"site_logo": "images/brslogo.png",
+
+ # Logo to use for login form in dark themes (defaults to login_logo)
+"login_logo_dark": None,
+
+# Welcome text on the login screen
+"welcome_sign": "Bespoke Recruitment Staff login",
+
+ "search_model": "auth.User",
+
+  # Whether to display the side menu
+    "show_sidebar": True,
+
+    "show_ui_builder": True,
+
+"topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+         {"name": "Support", "url": "https://github.com/danwood1992/helios", "new_window": True},
+
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+
+        # App with dropdown menu to all its models pages (Permissions checked against models)
+        {"app": "books"},
+    ],
+
+     "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+
+
+}
