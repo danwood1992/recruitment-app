@@ -6,24 +6,13 @@ from django.contrib import messages
 from users.models import Staff_Profile
 
 def getHome(request):
-   
    return render (request,'home.html')
 
 def getAbout(request):
-
    return render (request, 'about.html')
 
 def getFaq(request):
-
    return render (request, 'faq.html')
 
 def getContact(request):
-
    return render (request, 'contact.html')
-
-   
-
-
-
-
-# Create your views here.
