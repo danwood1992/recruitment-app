@@ -8,8 +8,6 @@ from django.db.models import Q
 from .models import Staff_Profile
 
 def staff_Profiles(request):
-   
-    
     context = {}
     return render(request, 'profiles.html', context)
 
